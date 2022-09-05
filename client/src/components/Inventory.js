@@ -39,7 +39,7 @@ const Inventory = (props) => {
         .then((response) => {
             console.log(response);
             console.log(response.data);
-            setInventoryProduct([product]);
+            setInventoryProduct([...inventoryProduct, product]);
             navigate("/builds/cart");
         })
         .catch((err) => {
@@ -54,6 +54,7 @@ const Inventory = (props) => {
                 <div id='inventory-style-2'>
                     <h3 id='inventory-contact'>Mid-Tier Gaming Computer</h3>
                     <div className='inventory-product-wrapper'>
+                        <h2 id='inventory-soon'>Coming Soon! Post-Project</h2>
                         <img id='inventory-image' src={Image} alt="product"/>
                         <ul className='inventory-list'>
                             <li value={inventoryCpu} id='inventory-spec-list'>CPU: Ryzen 5 5600x</li>

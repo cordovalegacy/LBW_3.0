@@ -412,6 +412,10 @@ select, input{
   margin-right: 25px;
 }
 
+#inventory-soon{
+  font-size: 20px;
+}
+
 #inventory-header{
   display: flex;
   text-align: center;
@@ -439,7 +443,7 @@ select, input{
   box-shadow: 1px 1px 10px 1px gold;
   display: flex;
   flex: 1;
-  height: 400px;
+  height: max-content;
   opacity: 0.95;
   border-radius: 5px 5px 5px;
 }

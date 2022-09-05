@@ -5,7 +5,7 @@ const Confirmation = () => {
         <div className="confirm-container">
             <h1 id="confirm-header">Thank you for your request!</h1>
             <h2 id="confirm-content">Hold tight! We will get back to you as soon as we can.</h2>
-            <h3 id="confirm-alert">You may receive an automated email</h3>
+            <h3 id="confirm-alert">You may receive an automated email (post-project)</h3>
             <br/>
             <Link to='/builds/cart'>Process the rest of your orders</Link>
             <br/>
