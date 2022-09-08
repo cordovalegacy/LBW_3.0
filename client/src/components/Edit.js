@@ -1,14 +1,10 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
 
 const Edit = (props) => {
 
     const {id} = useParams();
-
-    const {orderList, setOrderList} = props;
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -71,7 +67,7 @@ const Edit = (props) => {
     };
 
     return (
-        <div>
+        <div className='edit-main'>
             <form className='custom-form-container'>
                 <div className='custom-form-wrapper'>
                     <label>Full Name: </label>

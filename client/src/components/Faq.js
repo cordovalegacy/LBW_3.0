@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Faq = () => {
     return (
-        <div>
+        <div className='faq-main'>
             <h2 id='faq-header-main'>Frequently Asked Question's</h2>
             <div className='faq-container-1'>
                 <div id='faq-style-1'>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {useParams, Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
@@ -50,7 +50,7 @@ const deleteHandler = (e) => {
                 <h2 id="checkout-header">Order Details for {orderCheckout.fullName}'s Computer</h2>
             </div>
             <div>
-                <div>
+                <div className="checkout-content-background">
                 <h2 id="checkout-content">CPU: {orderCheckout.cpu}</h2>
                 <h2 id="checkout-content">GPU: {orderCheckout.gpu}</h2>
                 <h2 id="checkout-content">RAM: {orderCheckout.ram}</h2>
@@ -58,8 +58,8 @@ const deleteHandler = (e) => {
                 <h2 id="checkout-content">Cooling: {orderCheckout.cooling}</h2>
                 <h2 id="checkout-content">Theme: {orderCheckout.theme}</h2>
                 <h2 id="checkout-content">Special Requests: {orderCheckout.special}</h2>
-                </div>
                 <button id="checkout-btn" onClick={deleteHandler}>Submit Request</button>
+            </div>
             </div>
         </div>
     );

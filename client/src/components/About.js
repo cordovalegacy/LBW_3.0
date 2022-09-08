@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const About = () => {
     return (
-        <div>
+        <div className='about-main'>
             <div className='about-container'>
                 <h2 id='about-mission'>Our purpose is to collide science and art into something you can touch, enjoy, and smile about! Legacy Builds LLC. is a custom computer business with a focus on building a community of technology lovers, one desktop at a time</h2>
                 <div id='about-wrapper'>

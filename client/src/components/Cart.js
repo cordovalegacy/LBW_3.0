@@ -6,6 +6,25 @@ import Gear from '../img/gear.png';
 const Cart = (props) => {
 
     const {orderList, setOrderList} = props;
+    const {inventoryProduct, setInventoryProduct} = props;
+
+    const product = {
+        cpu: "Ryzen 5 5600x",
+        gpu : "RTX 3050",
+        ram : "16gb ddr4 3200mhz",
+        storage : "SSD, 500gb m.2 nvme",
+        psu : "750w 80+ gold",
+        motherboard : "b550M",
+        cooling : "Stock (air)",
+        case : "mATX case w/ 6 fans",
+        accessories : "vertical gpu riser cable",
+        theme: "green and black",
+        budget: "1200",
+        fullName: "Starter",
+        special: "Inventory - Pre-Build",
+        email: "N/A",
+        phoneNumber: 0,
+    }
 
     const navigate = useNavigate();
 
@@ -16,6 +35,7 @@ const Cart = (props) => {
         .then((res) => {
             console.log(res.data);
             setOrderList(res.data);
+            setInventoryProduct(res.data);
         })
         .catch((err) => console.log(err));
     }, []);
@@ -26,6 +46,7 @@ const Cart = (props) => {
         .then((res) => {
             console.log(res.data);
             setOrderList(orderList.filter((order, index) => order._id !== idFromBelow));
+            setInventoryProduct(inventoryProduct.filter((product, index) => product._id !== idFromBelow));
         })
         .catch((err) => console.log(err))
     };
@@ -44,7 +65,7 @@ const Cart = (props) => {
                             <tr>
                                 <div className="cart-column">
                                     <div id="cart-center">
-                                        <thead id="cart-custom">{order.fullName}'s PC</thead>
+                                        <thead id="cart-custom">{order.fullName}</thead>
                                         <img id="cart-gear" src={Gear} alt="gear" />
                                         <p id="cart-custom">Custom</p>
                                     </div>

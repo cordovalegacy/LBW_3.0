@@ -17,7 +17,6 @@ import Mew from '../img/mew.jpg';
 import Mike from '../img/mike.jpg';
 import NarutoOrange from '../img/narutoorange.jpg';
 import NarutoYellow from '../img/narutoyellow.jpg';
-import PunisherRed from '../img/punisherred.jpg';
 import SpiderMan from '../img/spiderman.jpg';
 import SuperMan from '../img/superman.jpg';
 import Vader from '../img/vader.jpg';
@@ -34,75 +33,95 @@ const Gallery = () => {
             <div className='gallery-wrapper'>
                     <Carousel infiniteLoop useKeyboardArrows autoPlay>
                         <div>
+                            <p id='carousel-p'>Starter</p>
                             <img id='img-width' src={Harley} alt='Harley' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Mid-Tier</p>
                             <img id='img-width' src={Aurora} alt='Harley' />
                         </div>
                         <div>
+                        <p id='carousel-p'>Enthusiast</p>
                             <img id='img-width' src={Enthusiast} alt='Punisher' />
                         </div>
                         <div>
+                            <p id='carousel-p'>High-End</p>
                             <img id='img-width' src={HighEnd} alt='Anime' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Mid-Tier</p>
                             <img id='img-width' src={MidTier} alt='Custom' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Super-Tier</p>
                             <img id='img-width' src={SuperTier} alt='Godzilla' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Super-Tier</p>
                             <img id='img-width' src={Batman} alt='Batman' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Super-Tier</p>
                             <img id='img-width' src={George} alt='George' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Super-Tier</p>
                             <img id='img-width' src={Thanos} alt='Thanos' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Mid-Tier</p>
                             <img id='img-width' src={Captain} alt='Captain' />
                         </div>
                         <div>
+                            <p id='carousel-p'>High-End</p>
                             <img id='img-width' src={Cyborg} alt='Cyborg' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Enthusiast</p>
                             <img id='img-width' src={HulkBuster} alt='HulkBuster' />
                         </div>
                         <div>
+                            <p id='carousel-p'>High-End</p>
                             <img id='img-width' src={Mew} alt='Mew' />
                         </div>
                         <div>
+                            <p id='carousel-p'>High-End</p>
                             <img id='img-width' src={Mike} alt='Mike' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Mid-Tier</p>
                             <img id='img-width' src={NarutoOrange} alt='Naruto' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Starter</p>
                             <img id='img-width' src={NarutoYellow} alt='Naruto' />
                         </div>
                         <div>
-                            <img id='img-width' src={PunisherRed} alt='Punisher' />
-                        </div>
-                        <div>
+                            <p id='carousel-p'>Mid-Tier</p>
                             <img id='img-width' src={SpiderMan} alt='Spidey' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Starter</p>
                             <img id='img-width' src={SuperMan} alt='SuperMan' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Mid-Tier</p>
                             <img id='img-width' src={Vader} alt='Vader' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Super-Tier</p>
                             <img id='img-width' src={VenomHulk} alt='VenomHulk' />
                         </div>
                         <div>
+                            <p id='carousel-p'>High-End</p>
                             <img id='img-width' src={WarMachine} alt='WarMachine' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Mid-Tier</p>
                             <img id='img-width' src={WonderWoman} alt='WonderWoman' />
                         </div>
                         <div>
+                            <p id='carousel-p'>Starter</p>
                             <img id='img-width' src={ZombieHulk} alt='ZombieHulk' />
                         </div>
                     </Carousel>
