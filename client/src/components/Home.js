@@ -4,7 +4,7 @@ import Company from '../img/midtier.JPG';
 import Naruto from '../img/highend.JPG';
 import Godzilla from '../img/supertier.JPG';
 import Enthusiast from '../img/enthusiast.JPG';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 
 const HomePage = () => {
 
@@ -13,6 +13,10 @@ const HomePage = () => {
     return (
         <div>
             <main className="home-main">
+                <div className="home-login-registration">
+                    <Link to='/builds/login'>Login</Link> 
+                    <Link to='/builds/registration'>Register</Link> 
+                </div>
                 <h2 className="home-welcome">Welcome to Legacy Builds</h2>
                 <h2 className="home-welcome-disclaimer">Examples of previously built computers within their respected ranks</h2>
                 <div className="home-content-container">

@@ -13,7 +13,7 @@ const Checkout = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/builds/checkout/${id}`)
+        axios.get(`http://localhost:8000/api/builds/custom/checkout/${id}`)
         .then((res) => {
             console.log(res.data);
             setOrderCheckout(res.data);
@@ -23,7 +23,18 @@ const Checkout = (props) => {
     });
 }, []);
 
-const deleteHandler = (e) => {
+//     useEffect(() => {
+//         axios.get(`http://localhost:8000/api/builds/inventory/checkout/${id}`)
+//         .then((res) => {
+//             console.log(res.data);
+//             setOrderCheckout(res.data);
+//         })
+//         .catch((err) => {
+//             console.log(err);
+//     });
+// }, []);
+
+const sendHandler = (e) => {
     e.preventDefault();
     emailjs.send('service_id', 'contact_form', orderCheckout , 'LW4RMYIvhRvf0Fz9c')
         .then((res) => {
@@ -32,7 +43,7 @@ const deleteHandler = (e) => {
             console.log(err);
         });
 
-    axios.delete(`http://localhost:8000/api/builds/${id}`)
+    axios.delete(`http://localhost:8000/api/builds/custom/${id}`)
     .then((res) => {
         console.log(res.data);
         navigate('/builds/confirmation');
@@ -58,7 +69,7 @@ const deleteHandler = (e) => {
                 <h2 id="checkout-content">Cooling: {orderCheckout.cooling}</h2>
                 <h2 id="checkout-content">Theme: {orderCheckout.theme}</h2>
                 <h2 id="checkout-content">Special Requests: {orderCheckout.special}</h2>
-                <button id="checkout-btn" onClick={deleteHandler}>Submit Request</button>
+                <button id="checkout-btn" onClick={sendHandler}>Submit Request</button>
             </div>
             </div>
         </div>

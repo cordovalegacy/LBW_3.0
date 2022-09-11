@@ -21,6 +21,18 @@ const LegacySchema = new mongoose.Schema({
         required : [true, "Phone Number is required"]
     },
 
+    // password:
+    // {
+    //     type: String,
+    //     required: [true, "Password is required"]
+    // },
+
+    // passwordcheck:
+    // {
+    //     type: String,
+    //     required: [true, "Confirm Password is required"],
+    // },
+
     budget:
     {
         type: Number,
@@ -70,50 +82,25 @@ const LegacySchema = new mongoose.Schema({
         maxLength : [100, "cannot exceed one-hundred characters"]
     },
 
-    inventoryCpu:
-    {
-        type: String
-    },
+    // psu:
+    // {
+    //     type: String
+    // },
 
-    inventoryGpu:
-    {
-        type: String
-    },
+    // motherboard:
+    // {
+    //     type: String
+    // },
 
-    inventoryRam:
-    {
-        type: String
-    },
+    // case:
+    // {
+    //     type: String
+    // },
 
-    inventoryStorage:
-    {
-        type: String
-    },
-
-    inventoryPsu:
-    {
-        type: String
-    },
-
-    inventoryMotherboard:
-    {
-        type: String
-    },
-
-    inventoryCooling:
-    {
-        type: String
-    },
-    
-    inventoryCase:
-    {
-        type: String
-    },
-
-    inventoryAccessories:
-    {
-        type: String
-    },
+    // accessories:
+    // {
+    //     type: String
+    // },
 
 }, { timestamps: true });
 

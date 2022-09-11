@@ -11,27 +11,26 @@ import Cart from './components/Cart';
 import Edit from './components/Edit';
 import Confirmation from './components/Confirmation';
 import Checkout from './components/Checkout';
+import Registration from './components/Registration';
+import Login from './components/Login';
 import Logo from './img/lb_logo_2.jpg';
 import CartIcon from './img/cart_icon.png';
 
 function App() {
 
-  const product = [
-    {index: 1, "cpu": "Ryzen 5 5600x"},
-    {index: 2, "gpu" : "RTX 3050"},
-    {index: 3, "ram" : "16gb ddr4 3200mhz"},
-    {index: 4, "storage" : "SSD, 500gb m.2 nvme"},
-    {index: 5, "psu" : "750w 80+ gold"},
-    {index: 6, "motherboard" : "b550M"},
-    {index: 7, "cooling" : "Stock (air)"},
-    {index: 8, "case" : "mATX case w/ 6 fans"},
-    {index: 9, "accessories" : "vertical gpu riser cable"},
-    {index: 10, "theme" : "green and black"},
-    {index: 11, "budget" : "$1200"},
-];
-
   const [orderList, setOrderList] = useState([]);
-  const [inventoryProduct, setInventoryProduct] = useState([]);
+  const [inventoryProduct, setInventoryProduct] = useState([
+      {index: 1, "cpu": "Ryzen 5 5600x"},
+      {index: 2, "gpu" : "RTX 3050"},
+      {index: 3, "ram" : "16gb ddr4 3200mhz"},
+      {index: 4, "storage" : "SSD, 500gb m.2 nvme"},
+      {index: 5, "psu" : "750w 80+ gold"},
+      {index: 6, "motherboard" : "b550M"},
+      {index: 7, "cooling" : "Stock (air)"},
+      {index: 8, "case" : "mATX case w/ 6 fans"},
+      {index: 9, "accessories" : "vertical gpu riser cable"},
+  ]);
+  const [user,setLoginUser] = useState({});
 
   return (
     <BrowserRouter>
@@ -47,14 +46,16 @@ function App() {
           <br/>
         </nav>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route exact path='/' element={<HomePage />} />
+          <Route path='/builds/registration' element={<Registration />} />
+          <Route path='/builds/login' element={<Login setLoginUser={setLoginUser} />} />
           <Route path='/builds/gallery' element={<Gallery />} />
           <Route path='/builds/custom' element={<CustomForm orderList={orderList} setOrderList={setOrderList} />} />
-          <Route path='/builds/inventory' element={<Inventory product={product} inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} />} />
+          <Route path='/builds/inventory' element={<Inventory inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} />} />
           <Route path='/builds/about' element={<About />} />
           <Route path='/builds/faq' element={<Faq />} />
           <Route path='/builds/cart' element={<Cart inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} orderList={orderList} setOrderList={setOrderList} />} />
-          <Route path='/builds/edit/:id' element={<Edit orderList={orderList} setOrderList={setOrderList} />} />
+          <Route path='/builds/custom/edit/:id' element={<Edit orderList={orderList} setOrderList={setOrderList} />} />
           <Route path='/builds/checkout/:id' element={<Checkout orderList={orderList} setOrderList={setOrderList} />} />
           <Route path='/builds/confirmation' element={<Confirmation />} />
         </Routes>

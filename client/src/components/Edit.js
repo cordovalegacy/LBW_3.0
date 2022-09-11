@@ -22,7 +22,7 @@ const Edit = (props) => {
     const navigate = useNavigate(); 
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/builds/${id}`)
+        axios.get(`http://localhost:8000/api/builds/custom/${id}`)
         .then((res) => {
             setFullName(res.data.fullName);
             setEmail(res.data.email);
@@ -42,7 +42,7 @@ const Edit = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        axios.put(`http://localhost:8000/api/builds/edit/${id}`, {
+        axios.put(`http://localhost:8000/api/builds/custom/edit/${id}`, {
             fullName,
             email,
             phoneNumber,

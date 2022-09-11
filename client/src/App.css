@@ -107,6 +107,15 @@ label{
   margin-bottom: 15%;
 }
 
+.home-login-registration{
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 50px;
+  gap: 25px;
+}
+
 .home-welcome{
   color: gold;
   margin-bottom: 50px;
@@ -372,6 +381,100 @@ select, input{
   -webkit-text-stroke: 0.5px rgb(255, 255, 255);
 }
 
+.about-me-wrapper{
+  display: flex;
+}
+
+#about-me-content{
+  justify-content: space-evenly;
+  align-items: center;
+  text-shadow: 2px 2px 4px gray;
+  background-image: linear-gradient(to bottom, rgba(77, 75, 75, 0.5), rgba(245, 245, 245, 0.800), rgba(228, 214, 158, 0.503), rgba(245, 245, 245, 0.25), rgba(77, 75, 75, 0.500));
+  height: fit-content;
+  box-shadow: 2px 2px 10px 5px darkgoldenrod;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 1;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  padding: 2%;
+}
+
+#about-us-header{
+  color: gold;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+#about-me-content-header{
+  font-size: 50px;
+  text-shadow: 1px 2px 5px gray;
+}
+
+#about-us-content-header{
+  font-size: 50px;
+  color: goldenrod;
+  text-shadow: 1px 2px 5px gray;
+}
+
+#about-me-content-paragraph{
+  font-size: 30px;
+  text-shadow: 1px 2px 5px gold;
+}
+
+#about-me-content-paragraph-2{
+  font-size: 25px;
+  text-shadow: 1px 2px 5px gold;
+}
+
+#about-me-content-paragraph-description{
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 2px 5px gold;
+}
+
+#about-me-content-paragraph-description-header{
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 2px 5px gray;
+  -webkit-text-stroke: 1px gold;
+  text-emphasis-color: gold;
+}
+
+#about-me-photo{
+  flex: 1;
+}
+
+#about-image-long{
+  max-width: 500px;
+  max-height: 500px;
+  width: 80%;
+  height: 80%;
+  min-width: 100px;
+  min-height: 100px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 5px gray;
+  border: 1px solid white;
+}
+
+#about-image{
+  max-width: 600px;
+  max-height: 600px;
+  width: 65%;
+  height: 65%;
+  min-width: 100px;
+  min-height: 100px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 5px gray;
+  border: 1px solid white;
+}
+
 
 /* ABOUT SECTION END */
 
@@ -578,14 +681,25 @@ select, input{
 }
 
 #inventory-image{
-  width: 150px;
-  -webkit-animation:spin 4s linear infinite;
+    max-width: 350px;
+    max-height: 350px;
+    width: 30%;
+    height: 25%;
+    min-width: 100px;
+    min-height: 100px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 5px gray;
+    border: 1px solid white;
+  }
+
+  /* -webkit-animation:spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;
   animation:spin 4s linear infinite;
-}
+
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } } */
 
 /* INVENTORY SECTION END */
 
@@ -670,20 +784,39 @@ select, input{
 /* CART SECTION START */
 
 .cart-container{
-  height: 800px;
-  max-height: fit-content;
-  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  min-height: fit-content;
+  max-height: max-content;
+  margin-top: 10%;
   margin-bottom: 15%;
-  overflow:hidden;
+  color: white;
+}
+
+.cart-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-height: fit-content;
 }
 
 .cart-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min-content;
+  width: max-content;
+  max-width: max-content;
   text-align: center;
   border: 1px solid gold;
   box-shadow: 1px 1px 5px 1px whitesmoke;
-  margin: 25px;
   text-shadow: 2px 2px 4px darkgoldenrod;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 #cart-header{
@@ -711,13 +844,6 @@ tr{
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-table{
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #cart-custom{
@@ -926,6 +1052,121 @@ table{
 }
 
 /* CONFIRMATION SECTION END */
+
+/* LOGIN REGISTRATION SECTION START */
+
+
+.login-registration{
+  display: flex;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), whitesmoke, rgba(255, 255, 255, 0.5), whitesmoke);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+  overflow: hidden;
+}
+
+.login-registration-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 25px;
+  flex: 1.5;
+}
+
+.login-image-form-wrapper{
+  flex: 1;
+  border-radius: 10px;
+  padding: 10px;
+  background: url(https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80);
+}
+
+#login-form-description{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#login-form-headers{
+  display: flex;
+  text-align: center;
+  font-size: x-large;
+  justify-content: center;
+  color: gold;
+  text-emphasis-color: white;
+  -webkit-text-stroke: 1px white;
+}
+
+#login-form-description-passwords{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#small{
+  color: black;
+  text-shadow: 1px 1px 5px gold;
+}
+
+#login-form-button{
+  background-image: linear-gradient(to bottom, rgba(255, 208, 0, 0.300), rgba(0, 0, 0, 0.300), rgba(255, 208, 0, 0.300));
+  border: 0.5px solid gray;
+  box-shadow: 1px 1px 5px 1px gray;
+  margin-bottom: 10px;
+  width: max-content;
+  height: 25px;
+}
+
+#login-form-button:hover{
+  border: 0.5px solid gold;
+  box-shadow: 1px 1px 3px 1px gold;
+  background-color: black;
+  color: gold;
+  transition: 250ms;
+  opacity: 0.6;
+}
+
+#login-form-button:active{
+  border: 0.5px solid gold;
+  box-shadow: 1px 1px 3px 1px gold;
+  background-color: white;
+  color: black;
+  transition: 250ms;
+  opacity: 0.6;
+}
+
+#login-inputs{
+  border-radius: 10px;
+}
+
+#login-heading-h1{
+  color: gold;
+  text-shadow: 1px 1px 5px black;
+}
+
+#login-image{
+  width: 150px;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/* LOGIN REGISTRATION SECTION END */
 
 /* FOOTER SECTION START */
 

@@ -24,6 +24,20 @@ import VenomHulk from '../img/venomhulk.jpg';
 import WarMachine from '../img/warmachine.jpg';
 import WonderWoman from '../img/wonderwoman.jpg';
 import ZombieHulk from '../img/zombiehulk.jpg';
+import Bart from '../img/bart.jpg';
+import Buu from '../img/buu.jpg';
+import DadThanos from '../img/dadthanos.jpg';
+import Deadpool from '../img/deadpool.jpg';
+import Demonslayer from '../img/demonslayer.jpg';
+import ESO from '../img/eso.jpg';
+import Ghostrider from '../img/ghostrider.jpg';
+import Inventory from '../img/inventory.jpg';
+import Joker from '../img/joker.jpg';
+import Jolteon from '../img/jolteon.jpg';
+import Marines from '../img/marines.jpg';
+import Revan from '../img/revan.jpg';
+import Sailormoon from '../img/sailormoon.jpg';
+import Witcher from '../img/witcher.jpg';
 
 const Gallery = () => {
 
@@ -32,6 +46,62 @@ const Gallery = () => {
         <div className='gallery-container'>
             <div className='gallery-wrapper'>
                     <Carousel infiniteLoop useKeyboardArrows autoPlay>
+                        <div>
+                            <p id='carousel-p'>Mid-Tier</p>
+                            <img id='img-width' src={Bart} alt='bart' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>High-End</p>
+                            <img id='img-width' src={Buu} alt='buu' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Mid-Tier</p>
+                            <img id='img-width' src={DadThanos} alt='dadthanos' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Mid-Tier</p>
+                            <img id='img-width' src={Deadpool} alt='deadpool' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Super-Tier</p>
+                            <img id='img-width' src={Demonslayer} alt='demon' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>High-End</p>
+                            <img id='img-width' src={ESO} alt='eso' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Mid-Tier</p>
+                            <img id='img-width' src={Ghostrider} alt='ghostrider' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Mid-Tier</p>
+                            <img id='img-width' src={Inventory} alt='inventory' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Starter</p>
+                            <img id='img-width' src={Joker} alt='joker' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Starter</p>
+                            <img id='img-width' src={Jolteon} alt='jolteon' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>High-End</p>
+                            <img id='img-width' src={Marines} alt='marines' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>Mid-Tier</p>
+                            <img id='img-width' src={Revan} alt='revan' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>High-End</p>
+                            <img id='img-width' src={Sailormoon} alt='sailor' />
+                        </div>
+                        <div>
+                            <p id='carousel-p'>High-End</p>
+                            <img id='img-width' src={Witcher} alt='witcher' />
+                        </div>
                         <div>
                             <p id='carousel-p'>Starter</p>
                             <img id='img-width' src={Harley} alt='Harley' />

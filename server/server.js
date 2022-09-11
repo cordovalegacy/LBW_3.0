@@ -16,3 +16,6 @@ require('./routes/legacy.route')(app);
 app.listen(8000, () => {
     console.log('Listening on Port 8000')
 });
+
+const jwt = require("jsonwebtoken");
+console.log("token", jwt.sign({_id: "tokens"}, "here"));

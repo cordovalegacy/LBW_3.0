@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import Image from '../img/gear.png';
+import InventoryImage from '../img/inventory.jpg';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 
 const Inventory = (props) => {
-
-    const {product} = props;
 
     const {inventoryProduct, setInventoryProduct} = props;
 
@@ -34,12 +32,6 @@ const Inventory = (props) => {
             cooling : "Stock (air)",
             case : "mATX case w/ 6 fans",
             accessories : "vertical gpu riser cable",
-            theme: "green and black",
-            budget: "1200",
-            fullName: "Starter",
-            special: "Inventory - Pre-Build",
-            email: "N/A",
-            phoneNumber: 0,
         }
 
         console.log('===product', product)
@@ -61,40 +53,37 @@ const Inventory = (props) => {
                 <div id='inventory-style-3'>
                         <div className='inventory-product-wrapper'>
                             <h3 id='inventory-contact'>Mid-Tier Gaming Computer</h3>
-                            <h2 id='inventory-soon'>Coming Soon! Post-Project</h2>
-                            <img id='inventory-image' src={Image} alt="product"/>
-                            {product.map((parts, index) => {
+                            <img id='inventory-image' src={InventoryImage} alt="product"/>
+                            {
+                            inventoryProduct.map((product, index) => {
                                 return (
                                     <div>
-                                    <div className='inventory-list' key={1}>
-                                        <li id='inventory-spec-list'>{parts.cpu}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.cpu}</li>
                                     </div>
-                                    <div className='inventory-list' key={2}>
-                                        <li id='inventory-spec-list'>{parts.gpu}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.gpu}</li>
                                     </div>
-                                    <div className='inventory-list' key={3}>
-                                        <li id='inventory-spec-list'>{parts.ram}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.ram}</li>
                                     </div>
-                                    <div className='inventory-list' key={4}>
-                                        <li id='inventory-spec-list'>{parts.storage}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.storage}</li>
                                     </div>
-                                    <div className='inventory-list' key={5}>
-                                        <li id='inventory-spec-list'>{parts.cooling}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.cooling}</li>
                                     </div>
-                                    <div className='inventory-list' key={6}>
-                                        <li id='inventory-spec-list'>{parts.motherboard}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.motherboard}</li>
                                     </div>
-                                    <div className='inventory-list' key={7}>
-                                        <li id='inventory-spec-list'>{parts.psu}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.psu}</li>
                                     </div>
-                                    <div className='inventory-list' key={8}>
-                                        <li id='inventory-spec-list'>{parts.case}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.case}</li>
                                     </div>
-                                    <div className='inventory-list' key={9}>
-                                        <li id='inventory-spec-list'>{parts.accessories}</li>
-                                    </div>
-                                    <div className='inventory-list' key={10}>
-                                        <li id='inventory-spec-list'>{parts.budget}</li>
+                                    <div className='inventory-list'>
+                                        <li id='inventory-spec-list'>{product.accessories}</li>
                                     </div>
                                     </div>
                                 )
