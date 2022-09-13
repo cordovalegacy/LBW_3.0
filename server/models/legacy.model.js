@@ -35,7 +35,7 @@ const LegacySchema = new mongoose.Schema({
 
     budget:
     {
-        type: Number,
+        type: String,
         required : [true, "Enter a budget you'd like to stick to"]
     },
     
@@ -81,6 +81,12 @@ const LegacySchema = new mongoose.Schema({
         type: String,
         maxLength : [100, "cannot exceed one-hundred characters"]
     },
+
+    createdBy: 
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }
 
     // psu:
     // {

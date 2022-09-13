@@ -4,6 +4,8 @@ module.exports = (app) => {
     //LOGIN START
     app.post('/api/builds/registration', LegacyController.registerUser);
     app.post('/api/builds/login', LegacyController.login);
+    app.post('/api/builds/logout', LegacyController.logout);
+    // app.get('/api/builds/login/:id', LegacyController.getOneUser);
     //LOGIN END
     //CUSTOM START
     app.get('/api/builds/custom', LegacyController.getAllBuilds);

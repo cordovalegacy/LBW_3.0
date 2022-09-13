@@ -37,7 +37,7 @@ const Faq = () => {
                     <p id='computer-questions-answers'>How much is your typical computer?</p>
                     <span id='white'>This amount depends on what your personal PC needs are. But it can range from <span id='red'>$750</span> to <span id='red'>$10k+</span>.</span>
                     <p id='computer-questions-answers'>How much is shipping?</p>
-                    <span id='white'>Shipping is about<span id='red'>$100</span>depending on the weight, insurance and type (ground vs. air).</span>
+                    <span id='white'>Shipping is about <span id='red'>$100</span> depending on the weight, insurance and type (ground vs. air).</span>
                 </div>
             </div>
         </div>

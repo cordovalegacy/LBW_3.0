@@ -51,6 +51,12 @@ const InventorySchema = new mongoose.Schema({
         type: String
     },
 
+    createdBy: 
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }
+
 }, { timestamps: true });
 
 

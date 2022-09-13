@@ -11,7 +11,7 @@ const CustomForm = (props) => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] =useState("");
     const [phoneNumber, setPhoneNumber] = useState();
-    const [budget, setBudget] = useState();
+    const [budget, setBudget] = useState("");
     const [cpu, setCpu] = useState("");
     const [gpu, setGpu] = useState("");
     const [ram, setRam] = useState("");
@@ -74,6 +74,17 @@ const CustomForm = (props) => {
             <label>Email Address: </label>
             <input type='text' name='email' value={email} onChange={(e)=> setEmail(e.target.value)} />
             {errors.email ? <p id='error-red'>{errors.email.message}</p> : null}
+            <label id='exception'>Budget: </label>
+            <select name='budget' id="custom-cpu" value={budget} defaultValue="Select"
+                onChange={(e) => setBudget(e.target.value)}>
+                <option value="" disabled selected>Select Budget</option>
+                <option value="Starter">Starter ~($1000)</option>
+                <option value="Mid-Tier">Mid-Tier ~($1500)</option>
+                <option value="High-End">High-End ~($2000)</option>
+                <option value="Super-Tier">Super-Tier ~($3000)</option>
+                <option value="Enthusiast">Enthusiast ~($4000+)</option>
+            </select>            
+            {errors.budget ? <p id='error-red'>{errors.budget.message}</p> : null}
             <label>Phone Number: </label>
             <PhoneInput
                 name='phoneNumber'
@@ -84,9 +95,6 @@ const CustomForm = (props) => {
                 onChange={setPhoneNumber}
             />
             {errors.phoneNumber ? <p id='error-red'>{errors.phoneNumber.message}</p> : null}
-            <label>Budget: </label>
-            <input type='number' name='budget' placeholder='$750+' value={budget} onChange={(e)=> setBudget(e.target.value)} />
-            {errors.budget ? <p id='error-red'>{errors.budget.message}</p> : null}
         </div>
         <div className='custom-form-wrapper'>
             <label id='exception'>CPU: </label>

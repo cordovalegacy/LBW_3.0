@@ -69,6 +69,7 @@ const sendHandler = (e) => {
                 <h2 id="checkout-content">Cooling: {orderCheckout.cooling}</h2>
                 <h2 id="checkout-content">Theme: {orderCheckout.theme}</h2>
                 <h2 id="checkout-content">Special Requests: {orderCheckout.special}</h2>
+                <h2 id="checkout-content">Budget: {orderCheckout.budget}</h2>
                 <button id="checkout-btn" onClick={sendHandler}>Submit Request</button>
             </div>
             </div>

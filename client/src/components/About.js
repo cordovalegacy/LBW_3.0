@@ -9,7 +9,7 @@ import AboutLogo from '../img/aboutlogo.jpg';
 const About = () => {
     return (
         <div className='about-main'>
-            <h2 id='about-us-content-header'>Who is Legacy Builds?</h2>
+            <h2 id='about-us-content-header'>Why Legacy Builds?</h2>
             <div className='about-container'>
                 <h2 id='about-mission'>Our purpose is to collide science and art into something you can touch, enjoy, and smile about! Legacy Builds LLC. is a custom computer business with a focus on building a community of technology lovers, one desktop at a time</h2>
                 <div id='about-wrapper'>
@@ -74,12 +74,12 @@ const About = () => {
                 <img id='about-image' src={Dogs} alt="dogs" />
             </div>
             <div id='about-me-content'>
-                <h3 id='about-me-content-paragraph-2'>Two little dogs, Charlie and Bella!</h3>
-                <p id='about-me-content-paragraph-description'>One looks like a teddy bear, and one looks like a rat. But they are both Chihuahuas</p>
+                <h3 id='about-me-content-paragraph-2'>Two little ones, Charlie and Bella!</h3>
+                <p id='about-me-content-paragraph-description'>One looks like a teddy bear, and one looks like a rat...but they're our little family.</p>
                 <br/>
                 <h3 id='about-me-content-paragraph-2'>What is important to me? Who I am? Why should you care?</h3>
                 <p id='about-me-content-paragraph-description'>I am nothing special. I am a man who loves technology, learning, and growing.</p>
-                <p id='about-me-content-paragraph-description'>I am a proud and greateful American. I love camping, wildlife, and campfires. I yearn to be better every waking moment of my life. I love my friends, family, and community. And I want to impact everything and everyone around me with technology!</p>
+                <p id='about-me-content-paragraph-description'>I am a proud and greateful American. I love camping, wildlife, and cooking over a campfire. I yearn to be better every waking moment of my life. I love my friends, family, and community. And I want to impact everything and everyone around me with technology!</p>
             </div>
             </div>
             <div className='about-me-wrapper'>

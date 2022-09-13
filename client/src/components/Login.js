@@ -17,7 +17,7 @@ const Login = ({setLoginUser}) => {
         setUser({...user,[name]:value})
         }
     const login =()=>{
-        axios.post("http://localhost:8000/builds/login",user)
+        axios.post("http://localhost:8000/builds/login", user)
         .then(res=>{alert(res.data.message)
         setLoginUser(res.data.user)
         navigate('/');
@@ -33,14 +33,17 @@ const Login = ({setLoginUser}) => {
             </div>
         <form className='login-registration-form'>
             <h1 id='login-heading-h1'>Login</h1>
+            <h3>*post-project*</h3>
         <div id='login-form-description'>
             <input name='email' value={user.email} onChange={changeHandler} id='login-inputs' type="text" placeholder="Enter email address" />
         </div>
         <div id='login-form-description'>
             <input name="password" value={user.password} onChange={changeHandler} id='login-inputs' type="password" placeholder="Enter Password" />
         </div>
-        <button onClick={login} id='login-form-button' type="submit">Login</button>
-        <Link to='/builds/registration'>Don't have an account? Register!</Link>
+        <button onClick={login} id='login-form-button' type="button">Login</button>
+        <div id='registration-login-link-background'>
+            <Link to='/builds/registration'>Don't have an account? Register!</Link>
+        </div>
         </form>
     </div>
     )

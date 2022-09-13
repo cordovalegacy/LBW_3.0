@@ -1,5 +1,5 @@
 import React from "react";
-import Harley from '../img/harley.jpg';
+import Zombie from '../img/zombiehulk.jpg';
 import Company from '../img/midtier.JPG';
 import Naruto from '../img/highend.JPG';
 import Godzilla from '../img/supertier.JPG';
@@ -21,7 +21,7 @@ const HomePage = () => {
                 <h2 className="home-welcome-disclaimer">Examples of previously built computers within their respected ranks</h2>
                 <div className="home-content-container">
                     <div id="home-content-photo">
-                    <img className="home-content-gallery" src={Harley} alt='Harley' />
+                    <img className="home-content-gallery" src={Zombie} alt='zombie' />
                     </div>
                     <div id="home-content-description">
                         <ul>

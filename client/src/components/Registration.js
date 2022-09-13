@@ -7,29 +7,26 @@ const Registration = () => {
 
     const navigate = useNavigate();
 
-    const [user,setUser] = useState([
-        {fullName:""},
-        {email:""},
-        {password: ""},
-        {confirmPassword: ""},
-    ])
+    const [user,setUser] = useState({
+        fullName:"",
+        email:"",
+        password: "",
+        confirmPassword: "",
+})
 
     const changeHandler = (e) => {
         e.preventDefault();
-    const {name, value} = e.target
+    const {name, value} = e.target; 
     setUser({...user, [name]:value})
     }
 
     const registerHandler = () => {
-    const {name, email, password, confirmPassword} = user;
-    if (name && email && password && confirmPassword){
+    const {fullName, email, password, confirmPassword} = user;
+    if (fullName && email && password && confirmPassword){
     axios.post("http://localhost:8000/api/builds/registration", user)
     .then(res=>console.log(res))
     navigate('/');
     }
-    else {
-        alert("invalid input")
-    };
 };
 
     return(
@@ -52,8 +49,10 @@ const Registration = () => {
             <input onChange={changeHandler} name="password" value={user.password}  id='login-inputs' type="password" placeholder="Enter Password" />
             <input onChange={changeHandler} name="confirmPassword" value={user.confirmPassword}  id='login-inputs' type="password" placeholder="Confirm Password" />
         </div>
-        <button onClick={registerHandler} id='login-form-button' type="submit">Register</button>
+        <button onClick={registerHandler} id='login-form-button' type="button">Register</button>
+        <div id='registration-login-link-background'>
         <Link to='/builds/login'>Already have an account? Login!</Link>
+        </div>
     </form>
     </div>
     )

@@ -81,7 +81,7 @@ const Cart = (props) => {
                             <tr>
                                 <div className="cart-column">
                                     <div id="cart-center">
-                                        <thead id="cart-custom">{order.fullName}</thead>
+                                        <thead id="cart-custom">{order.fullName}'s PC</thead>
                                         <img id="cart-gear" src={Gear} alt="gear" />
                                         <p id="cart-custom">Custom</p>
                                     </div>
@@ -99,6 +99,7 @@ const Cart = (props) => {
                                     <li id="cart-list">Cooling:  {order.cooling}</li>
                                     <li id="cart-list">Theme:  {order.theme}</li>
                                     <li id="cart-list">Special:  {order.special}</li>
+                                    <li id="cart-list">Budget:  {order.budget}</li>
                                 </ul>
                                 <button id="cart-btn-checkout" onClick={() => navigate(`/builds/checkout/${order._id}`)}>Checkout</button>
                             </td>

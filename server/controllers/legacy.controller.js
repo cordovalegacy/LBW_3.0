@@ -56,6 +56,25 @@ module.exports = {
     },
 
     createInventory: (req, res) => {
+
+        // const newInventoryObject = new Inventory(req.body);
+
+        // const decodedJWT = jwt.decode(req.cookies.userToken, {
+        //     complete: true
+        // })
+
+        // newInventoryObject.createdBy = decodedJWT.payload.id
+
+        // newInventoryObject.save()
+        //     .then((inventory)=> {
+        //         console.log('inventory!!!', inventory);
+        //         return res.json(inventory)
+        //     })
+        //     .catch((err)=> {
+        //         res.status(400).json({err});
+        //         console.log("Inventory item not added");
+        //     })},
+
         console.log('inventory!!!', req.body)
         Inventory.create(req.body)
             //.then(resp => resp.json())
@@ -83,65 +102,140 @@ module.exports = {
 
     //INVENTORY SECTION END
     // REGISTRATION AND LOGIN SECTION START
-    registerUser: async(req, res) => {
-        const {body} = req;
 
-        try {
-            const queriedUser = await User.findOne({email: body.email})
-            if (queriedUser) {
-                console.log("queriedUser")
-                console.log(queriedUser)
-            } else {
-                console.log(queriedUser)
-                console.log("Not a queried user")
-                res.status(400).json({errMsg: "This user already exists"});
-                return;
-            }
-        } catch (error) {
-            console.log("first error block")
-            res.status(400).json(error);
-        }
+    registerUser: (req, res) => {
+        console.log("register");
+        const user = new User(req.body);
+        console.log(req.body);
+        user
+            .save()
+            .then((newUser) => {
+                console.log(newUser);
+                console.log("successful registration")
+            res.json({ msg: "Thank you for registering!", user: newUser });
+            })
+            .catch((err) =>{
+                console.log("registration not successful") 
+                res.status(400).json(err)});
+        },
 
-        let newUser = new User(body)
-        try {
-            const newUserObj = await newUser.save();
-            res.json(newUserObj);
-        } catch (error) {
-            res.status(400).json(error);
-        }
-    },
+        login: (req, res) => {
+            User.findOne({email: req.body.email})
+            .then((userRecord)=>{
+                if(userRecord === null){
+                    res.status(400).json({message: "Invalid Login Attempt"})
+                }else{
+                    bcrypt.compare( req.body.password, userRecord.password )
+                        .then((isPasswordValid) => {
+                            if(isPasswordValid){
+                            console.log("Password is valid");
+                            res.cookie(
+                                "userToken",
+                                jwt.sign(
+                                    {
+                                        id: userRecord._id,
+                                        email: userRecord.email
+                                    },
+                                    process.env.JWT_SECRET
+                                ),
+                                {
+                                    httpOnly: true,
+                                    expires: new Date(Date.now() + 9000000)
+                                },
+                            ).json({
+                                message: "Successfully logged in",
+                                userLoggedIn: userRecord.email,
+                                userId: userRecord._id
+                            })
+                        }else{
+                            res.status(400).json({
+                                message: "Email Invalid"
+                            })
+                            .catch((err)=>{
+                                console.log(err);
+                                res.status(400).json({
+                                    message: "Invalid Attempt"
+                                })
+                            })
+                        }
+                    })
+                    .catch((err)=>{
+                        console.log(err)
+                        res.status(400).json({
+                            message: "Invalid Attempt"
+                        })
+                    })
+                }
+            })
+        },
 
-    login: async(req, res) => {
-        const {body} = req;
-        if(!body.email) {
-            res.status(400).json({error: "Please provide email to login"})
-            return;
-        }
-        let userQuery;
+        logout: (req, res) => {
+            console.log("logging out");
+            res.clearCookie("userToken");
+            res.json({
+                message: "You have been successfully logged out",
+            });
+        },
 
-        try {
-            userQuery = await User.findOne({email: body.email});
-            if(userQuery === null) {
-                res.status(400).json({msg: "email not found"});
-            }
-        } catch (error) {
-            res.status(400).json(error);
-        }
+    // registerUser: async(req, res) => {
+    //     const {body} = req;
 
-        const passwordCheck = bcrypt.compareSync(body.password, userQuery.password)
+    //     try {
+    //         const queriedUser = await User.findOne({email: body.email})
+    //         if (queriedUser) {
+    //             console.log("queriedUser")
+    //             console.log(queriedUser)
+    //         } else {
+    //             console.log(queriedUser)
+    //             console.log("Not a queried user")
+    //             res.status(400).json({errMsg: "This user already exists"});
+    //             return;
+    //         }
+    //     } catch (error) {
+    //         console.log("first error block")
+    //         res.status(400).json(error);
+    //     }
 
-        if(!passwordCheck) {
-            res.status(400).json({error: "Email and password do not match"});
-            return;
-        }
-        const userToken = jwt.sign({_id: userQuery._id}, "here");
-        console.log(userToken)
+    //     let newUser = new User(body)
+    //     try {
+    //         const newUserObj = await newUser.save();
+    //         res.json(newUserObj);
+    //     } catch (error) {
+    //         res.status(400).json(error);
+    //     }
+    // },
 
-        res.cookie("userToken", userToken, "here", {
-            httpOnly: true,
-            expires: new Date(Date.now()+9000000),
-        })
-        .json ({message: "successful login"});
-    }
+    // login: async(req, res) => {
+    //     const {body} = req;
+    //     if(!body.email) {
+    //         res.status(400).json({error: "Please provide email to login"})
+    //         return;
+    //     }
+    //     let userQuery;
+
+    //     try {
+    //         userQuery = await User.findOne({email: body.email});
+    //         if(userQuery === null) {
+    //             res.status(400).json({msg: "email not found"});
+    //         }
+    //     } catch (error) {
+    //         res.status(400).json(error);
+    //     }
+
+    //     const passwordCheck = bcrypt.compareSync(body.password, userQuery.password)
+
+    //     if(!passwordCheck) {
+    //         res.status(400).json({error: "Email and password do not match"});
+    //         return;
+    //     }
+    //     const userToken = jwt.sign({_id: userQuery._id}, "here");
+    //     console.log(userToken)
+
+    //     res.cookie("userToken", userToken, "here", {
+    //         httpOnly: true,
+    //         expires: new Date(Date.now()+9000000),
+    //     })
+    //     .json ({message: "successful login"});
+    // }
     // REGISTRATION AND LOGIN SECTION END
 };

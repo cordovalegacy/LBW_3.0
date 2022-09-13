@@ -1,5 +1,7 @@
+require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require("cookie-parser");
 const app = express();
 
 app.use(express.json());
@@ -10,11 +12,13 @@ app.use(
 }),
 );
 
+app.use(cookieParser());
+
 require('./config/mongoose.config');
 require('./routes/legacy.route')(app);
 
-app.listen(8000, () => {
-    console.log('Listening on Port 8000')
+app.listen(process.env.MY_PORT, () => {
+    console.log(`Listening on Port ${process.env.MY_PORT}`)
 });
 
 const jwt = require("jsonwebtoken");

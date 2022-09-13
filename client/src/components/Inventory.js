@@ -9,6 +9,17 @@ const Inventory = (props) => {
 
     const navigate = useNavigate();
 
+    const product = {
+        cpu: "Ryzen 5 5600x",
+        gpu : "RTX 3050",
+        ram : "16gb ddr4 3200mhz",
+        storage : "SSD, 500gb m.2 nvme",
+        psu : "750w 80+ gold",
+        motherboard : "b550M",
+        cooling : "Stock (air)",
+        case : "mATX case w/ 6 fans",
+        accessories : "vertical gpu riser cable",
+    }
     // const [inventoryCpu, setInventoryCpu] = useState("");
     // const [inventoryGpu, setInventoryGpu] = useState("");
     // const [inventoryRam, setInventoryRam] = useState("");
@@ -22,17 +33,17 @@ const Inventory = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        const product = {
-            cpu: "Ryzen 5 5600x",
-            gpu : "RTX 3050",
-            ram : "16gb ddr4 3200mhz",
-            storage : "SSD, 500gb m.2 nvme",
-            psu : "750w 80+ gold",
-            motherboard : "b550M",
-            cooling : "Stock (air)",
-            case : "mATX case w/ 6 fans",
-            accessories : "vertical gpu riser cable",
-        }
+        // const product = {
+        //     cpu: "Ryzen 5 5600x",
+        //     gpu : "RTX 3050",
+        //     ram : "16gb ddr4 3200mhz",
+        //     storage : "SSD, 500gb m.2 nvme",
+        //     psu : "750w 80+ gold",
+        //     motherboard : "b550M",
+        //     cooling : "Stock (air)",
+        //     case : "mATX case w/ 6 fans",
+        //     accessories : "vertical gpu riser cable",
+        
 
         console.log('===product', product)
         axios.post('http://localhost:8000/api/builds/inventory', product)
@@ -44,9 +55,8 @@ const Inventory = (props) => {
         })
         .catch((err) => {
             console.log(err.response.data);
-        }); 
-    }   
-    
+        });    
+    }
     return (
             <div className='inventory-container-3'>
             <h2 id='inventory-header'>Check out what we have in stock!</h2>
@@ -54,9 +64,9 @@ const Inventory = (props) => {
                         <div className='inventory-product-wrapper'>
                             <h3 id='inventory-contact'>Mid-Tier Gaming Computer</h3>
                             <img id='inventory-image' src={InventoryImage} alt="product"/>
-                            {
+                            {/* {
                             inventoryProduct.map((product, index) => {
-                                return (
+                                return ( */}
                                     <div>
                                     <div className='inventory-list'>
                                         <li id='inventory-spec-list'>{product.cpu}</li>
@@ -86,8 +96,8 @@ const Inventory = (props) => {
                                         <li id='inventory-spec-list'>{product.accessories}</li>
                                     </div>
                                     </div>
-                                )
-                            })}
+                                {/* )
+                            })} */}
                             <button onClick={submitHandler} id='add-to-cart'>Add to cart</button>
                             </div>
                             

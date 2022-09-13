@@ -36,13 +36,13 @@ UserSchema.virtual("confirmPassword")
 .set((value) => (this._confirmPassword = value));
 
 UserSchema.pre("validate", function (next) {
-    if(this.password !== this._confirmPassword) {
+    if(this.password !== this.confirmPassword) {
         this.invalidate("confirmPassword", "Passwords must match");
     }
     next();
 });
 
-UserSchema.pre("validate", function (next) {
+UserSchema.pre("save", function (next) {
     bcrypt.hash(this.password, 10).then((hash) => {
         this.password = hash;
         next();
