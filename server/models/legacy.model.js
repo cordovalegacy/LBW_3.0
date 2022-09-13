@@ -12,7 +12,13 @@ const LegacySchema = new mongoose.Schema({
     email:
     {
         type: String,
-        required : [true, "Email Address is required"]
+        required : [true, "Email Address is required"],
+        validate: {
+            validator: function (v) {
+                return /^([\w-\.]+@([\w-]+\.)+[\w-]+)?$/.test(v);
+            },
+            message: "Please enter a valid email address",
+        }
     },
 
     phoneNumber:
@@ -73,7 +79,8 @@ const LegacySchema = new mongoose.Schema({
     {  
         type: String,
         required : [true, "Desired aesthetic is required"],
-        maxLength : [50, "cannot exceed fifty characters"] 
+        maxLength : [50, "cannot exceed fifty characters"], 
+        minLength : [5, "must be at least five characters"], 
     },
 
     special: 
