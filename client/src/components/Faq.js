@@ -11,7 +11,7 @@ const Faq = () => {
                     <p id='computer-questions-answers'>What kind of computers does Legacy Builds offer?</p>
                     <span id='white'>We specialize in gaming, workstations, streaming setups, and content creation rigs.</span>
                     <p id='computer-questions-answers'>What kind of computer do I need?</p>
-                    <span id='white'>It depends! Try sending in a custom order on the <Link to='/builds/custom'>Custom</Link> page and we can work on it together!</span>
+                    <span id='white'>It depends! Try sending in a custom order on the <Link to='/computers/customs'>Custom</Link> page and we can work on it together!</span>
                     <p id='computer-questions-answers'>Do you ship computers? Will they be safe?</p>
                     <span id='white'>We do! We ship through UPS, and insure it with shipping insurance so it makes it's way to you safe and sound.</span>
                     <p id='computer-questions-answers'>How many computers have you built? Will mine be in good hands?</p>

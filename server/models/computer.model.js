@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
-const InventorySchema = new mongoose.Schema({
-    
+const mongoose = require('mongoose')
+
+const ComputerSchema = new mongoose.Schema({
+
     cpu: 
     {  
         type: String,
@@ -28,7 +29,7 @@ const InventorySchema = new mongoose.Schema({
     cooling:
     {  
         type: String,
-        required : [true, "CPU is required"]
+        required : [true, "Cooler is required"]
     },
 
     psu:
@@ -60,4 +61,4 @@ const InventorySchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-module.exports = mongoose.model('Inventory', InventorySchema);
+module.exports = mongoose.model('Computer', ComputerSchema);

@@ -1,52 +1,72 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Gear from '../img/gear.png';
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = ({setLoginUser}) => {
+const Login = (props) => {
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
 
-    const [user,setUser] = useState({
-        email:"",
-        password: ""
-    })
+    const login = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:8000/api/users/login",
+            {
+                email: email,
+                password: password
+            },
+            {
+                withCredentials: true,
+                credentials: 'include'
+            }
+        )
+            .then((res) => {
+                alert(res.data.message);
+                console.log(res.data, "is res data!");
+                console.log(res.data.userLoggedIn);
+                navigate('/');
+            })
+            .catch((err) => {
+                console.log(err.response.data);
+                setErrorMessage(err.response.data.message);
+            });
+    };
 
-    const changeHandler = e =>{
-        const {name,value} = e.target
-        setUser({...user,[name]:value})
-        }
-    const login =()=>{
-        axios.post("http://localhost:8000/builds/login", user)
-        .then(res=>{alert(res.data.message)
-        setLoginUser(res.data.user)
-        navigate('/');
-        })
-    }
-    
-    return(
-    <div className='login-registration'>
-        <div className='login-image-form-wrapper'>
+    return (
+        <div className='login-registration'>
+            <div className='login-image-form-wrapper'>
                 <h3 id='login-form-headers'>Thanks for being a member of our community!</h3>
                 <h3 id='login-form-headers'>Login here</h3>
-                <img id='login-image' src={Gear} alt="gear-icon"/>
+                <img id='login-image' src={Gear} alt="gear-icon" />
             </div>
-        <form className='login-registration-form'>
-            <h1 id='login-heading-h1'>Login</h1>
-            <h3>*post-project*</h3>
-        <div id='login-form-description'>
-            <input name='email' value={user.email} onChange={changeHandler} id='login-inputs' type="text" placeholder="Enter email address" />
+            <form onSubmit={login} className='login-registration-form'>
+                <h1 id='login-heading-h1'>Login</h1>
+                <p id='red' >{errorMessage ? errorMessage : ""}</p>
+                <div id='login-form-description'>
+                    <input name='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        id='login-inputs'
+                        type="text"
+                        placeholder="Enter email address"
+                    />
+                </div>
+                <div id='login-form-description'>
+                    <input
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        id='login-inputs'
+                        type="password"
+                        placeholder="Enter Password"
+                    />
+                </div>
+                <input type="submit" id='login-form-button' value={"Login"} />
+            </form>
         </div>
-        <div id='login-form-description'>
-            <input name="password" value={user.password} onChange={changeHandler} id='login-inputs' type="password" placeholder="Enter Password" />
-        </div>
-        <button onClick={login} id='login-form-button' type="button">Login</button>
-        <div id='registration-login-link-background'>
-            <Link to='/builds/registration'>Don't have an account? Register!</Link>
-        </div>
-        </form>
-    </div>
     )
 };
 
-    export default Login;
+export default Login;

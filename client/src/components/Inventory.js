@@ -20,41 +20,23 @@ const Inventory = (props) => {
         case : "mATX case w/ 6 fans",
         accessories : "vertical gpu riser cable",
     }
-    // const [inventoryCpu, setInventoryCpu] = useState("");
-    // const [inventoryGpu, setInventoryGpu] = useState("");
-    // const [inventoryRam, setInventoryRam] = useState("");
-    // const [inventoryStorage, setInventoryStorage] = useState("");
-    // const [inventoryPsu, setInventoryPsu] = useState("");
-    // const [inventoryMotherboard, setInventoryMotherboard] = useState("");
-    // const [inventoryCooling, setInventoryCooling] = useState("");
-    // const [inventoryCase, setInventoryCase] = useState("");
-    // const [inventoryAccessories, setInventoryAccessories] = useState("");
 
     const submitHandler = (e) => {
         e.preventDefault();
-
-        // const product = {
-        //     cpu: "Ryzen 5 5600x",
-        //     gpu : "RTX 3050",
-        //     ram : "16gb ddr4 3200mhz",
-        //     storage : "SSD, 500gb m.2 nvme",
-        //     psu : "750w 80+ gold",
-        //     motherboard : "b550M",
-        //     cooling : "Stock (air)",
-        //     case : "mATX case w/ 6 fans",
-        //     accessories : "vertical gpu riser cable",
         
-
         console.log('===product', product)
-        axios.post('http://localhost:8000/api/builds/inventory', product)
+        axios.post('http://localhost:8000/api/computers/inventory', 
+        product, 
+        {withCredentials: true})
         .then((response) => {
             console.log(response);
             console.log(response.data);
             setInventoryProduct([...inventoryProduct, response.data]);
-            navigate("/builds/cart");
+            navigate("/computers/cart");
         })
         .catch((err) => {
             console.log(err.response.data);
+            alert("Thanks for your interest! Please register an account with us and log in to add products to cart.")
         });    
     }
     return (

@@ -22,7 +22,7 @@ const Edit = (props) => {
     const navigate = useNavigate(); 
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/builds/custom/${id}`)
+        axios.get(`http://localhost:8000/api/computers/customs/${id}`)
         .then((res) => {
             setFullName(res.data.fullName);
             setEmail(res.data.email);
@@ -42,7 +42,7 @@ const Edit = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        axios.put(`http://localhost:8000/api/builds/custom/edit/${id}`, {
+        axios.put(`http://localhost:8000/api/computers/customs/edit/${id}`, {
             fullName,
             email,
             phoneNumber,
@@ -58,7 +58,7 @@ const Edit = (props) => {
         .then((res) => {
             console.log(res);
             console.log(res.data);
-            navigate('/builds/cart');
+            navigate('/computers/cart');
         })
         .catch((err) => {
             console.log(err.response.data.err.errors);

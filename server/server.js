@@ -1,25 +1,33 @@
-require("dotenv").config();
+//in this order is ideal, dont move things around
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
-const cookieParser = require("cookie-parser");
+const cookieParser = require('cookie-parser');
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(
-    cors({
-    origin: 'http://localhost:3000',
-}),
-);
+//this parses incoming requests with JSON payloads
+//allows us to recognize request object as a JSON object
+app.use(express.json())
 
-app.use(cookieParser());
+//this parses incoming requests with JSON payloads consisting of STRINGS or ARRAYS
+app.use(express.urlencoded({extended:true}))
 
-require('./config/mongoose.config');
-require('./routes/legacy.route')(app);
+//this will allow us to connect our front end 3000 to our back end 8000
+//taking cors away will result in cors errors while attempting your axios calls
+//this security feature is built into the browser
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}))
 
-app.listen(process.env.MY_PORT, () => {
-    console.log(`Listening on Port ${process.env.MY_PORT}`)
-});
+app.use(cookieParser())
 
-const jwt = require("jsonwebtoken");
-console.log("token", jwt.sign({_id: "tokens"}, "here"));
+require("./config/mongoose.config");
+require("./routes/computer.route")(app);
+require("./routes/custom.route")(app);
+
+//added for user controller setup
+require("./routes/user.route")(app);
+
+app.listen(process.env.MY_PORT, () => console.log(`You are connected to port ${process.env.MY_PORT}`));

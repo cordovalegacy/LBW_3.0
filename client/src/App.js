@@ -1,5 +1,6 @@
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 import HomePage from './components/Home';
 import Gallery from './components/Gallery';
@@ -11,60 +12,81 @@ import Cart from './components/Cart';
 import Edit from './components/Edit';
 import Confirmation from './components/Confirmation';
 import Checkout from './components/Checkout';
-import Registration from './components/Registration';
-import Login from './components/Login';
+import LogReg from './views/LogReg';
+import Profile from './components/Profile';
 import Logo from './img/lb_logo_2.jpg';
 import CartIcon from './img/cart_icon.png';
 
 function App() {
 
-  const [orderList, setOrderList] = useState([]);
-  const [inventoryProduct, setInventoryProduct] = useState([
-      {index: 1, "cpu": "Ryzen 5 5600x"},
-      {index: 2, "gpu" : "RTX 3050"},
-      {index: 3, "ram" : "16gb ddr4 3200mhz"},
-      {index: 4, "storage" : "SSD, 500gb m.2 nvme"},
-      {index: 5, "psu" : "750w 80+ gold"},
-      {index: 6, "motherboard" : "b550M"},
-      {index: 7, "cooling" : "Stock (air)"},
-      {index: 8, "case" : "mATX case w/ 6 fans"},
-      {index: 9, "accessories" : "vertical gpu riser cable"},
-  ]);
-  const [user,setLoginUser] = useState({});
+    const [orderList, setOrderList] = useState([]);
+    const [inventoryProduct, setInventoryProduct] = useState([
+        { index: 1, "cpu": "Ryzen 5 5600x" },
+        { index: 2, "gpu": "RTX 3050" },
+        { index: 3, "ram": "16gb ddr4 3200mhz" },
+        { index: 4, "storage": "SSD, 500gb m.2 nvme" },
+        { index: 5, "psu": "750w 80+ gold" },
+        { index: 6, "motherboard": "b550M" },
+        { index: 7, "cooling": "Stock (air)" },
+        { index: 8, "case": "mATX case w/ 6 fans" },
+        { index: 9, "accessories": "vertical gpu riser cable" },
+    ]);
 
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <nav>
-          <Link to='/'><img id='logo' src={Logo} alt='Logo' /></Link>
-          <Link to='/builds/gallery'>Gallery</Link>
-          <Link to='/builds/custom'>Custom</Link>
-          <Link to='/builds/inventory'>Inventory</Link>
-          <Link to='/builds/about'>Company</Link>
-          <Link to='/builds/faq'>FAQ's</Link>
-          <Link to='/builds/cart'><img id='cart' src={CartIcon} alt='cart' /></Link>
-          <br/>
-        </nav>
-        <Routes>
-          <Route exact path='/' element={<HomePage />} />
-          <Route path='/builds/registration' element={<Registration />} />
-          <Route path='/builds/login' element={<Login setLoginUser={setLoginUser} />} />
-          <Route path='/builds/gallery' element={<Gallery />} />
-          <Route path='/builds/custom' element={<CustomForm orderList={orderList} setOrderList={setOrderList} />} />
-          <Route path='/builds/inventory' element={<Inventory inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} />} />
-          <Route path='/builds/about' element={<About />} />
-          <Route path='/builds/faq' element={<Faq />} />
-          <Route path='/builds/cart' element={<Cart inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} orderList={orderList} setOrderList={setOrderList} />} />
-          <Route path='/builds/custom/edit/:id' element={<Edit orderList={orderList} setOrderList={setOrderList} />} />
-          <Route path='/builds/checkout/:id' element={<Checkout orderList={orderList} setOrderList={setOrderList} />} />
-          <Route path='/builds/confirmation' element={<Confirmation />} />
-        </Routes>
-        <footer>
-          <p>Website by Brendan Cordova, Owner of Legacy Builds LLC.</p>
-        </footer>
-      </div>
-    </BrowserRouter>
-  );
+    const [user, setLoginUser] = useState({});
+
+    const logout = async () => {
+        try {
+            const res = await axios.post('http://localhost:8000/api/users/logout',
+            //as a post request, we must add an object or something of some kind
+            //because we are not adding anything to the db, we can send an empty object 
+            {},
+            { withCredentials: true });
+            console.log(res);
+            console.log(res.data)
+            alert("You have logged out")
+        } catch (err) {
+            console.log(err.response);
+        }
+    }
+
+    return (
+        <BrowserRouter>
+            <div className="App">
+                <nav>
+                    <Link to='/'><img id='logo' src={Logo} alt='Logo' /></Link>
+                    <Link to='/computers/gallery'>Gallery</Link>
+                    <Link to='/computers/customs'>Custom</Link>
+                    <Link to='/computers/inventory'>Inventory</Link>
+                    <Link to='/computers/about'>Company</Link>
+                    <Link to='/computers/faq'>FAQ's</Link>
+                    <Link to='/computers/cart'><img id='cart' src={CartIcon} alt='cart' /></Link>
+                    <br />
+                    <div className="home-login-registration">
+                        <Link to='/computers/profile/:username'>Profile</Link>
+                        <Link to='/computers/logreg'>Register/Login</Link>
+                        <button id='logout-btn' onClick={logout}>Logout</button>
+                    </div>
+                </nav>
+                <Routes>
+                    <Route exact path='/' element={<HomePage />} />
+                    <Route path='/computers/profile/:username' element={<Profile />} />
+                    <Route path='/computers/logreg' element={<LogReg setLoginUser={setLoginUser} />} />
+                    <Route path='/computers/gallery' element={<Gallery />} />
+                    <Route path='/computers/customs' element={<CustomForm orderList={orderList} setOrderList={setOrderList} />} />
+                    <Route path='/computers/inventory' element={<Inventory inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} />} />
+                    <Route path='/computers/about' element={<About />} />
+                    <Route path='/computers/faq' element={<Faq />} />
+                    <Route path='/computers/cart' element={<Cart inventoryProduct={inventoryProduct} setInventoryProduct={setInventoryProduct} orderList={orderList} setOrderList={setOrderList} />} />
+                    <Route path='/computers/customs/edit/:id' element={<Edit orderList={orderList} setOrderList={setOrderList} />} />
+                    <Route path='/computers/checkout/:id' element={<Checkout orderList={orderList} setOrderList={setOrderList} />} />
+                    <Route path='/computers/confirmation' element={<Confirmation />} />
+                </Routes>
+                <footer>
+                    <p>Website by Brendan Cordova, Owner of Legacy Builds LLC.</p>
+                </footer>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;

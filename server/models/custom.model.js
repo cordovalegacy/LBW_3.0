@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const LegacySchema = new mongoose.Schema({
+const CustomSchema = new mongoose.Schema({
 
     fullName:
     {
@@ -26,19 +26,7 @@ const LegacySchema = new mongoose.Schema({
         type: Number,
         required : [true, "Phone Number is required"]
     },
-
-    // password:
-    // {
-    //     type: String,
-    //     required: [true, "Password is required"]
-    // },
-
-    // passwordcheck:
-    // {
-    //     type: String,
-    //     required: [true, "Confirm Password is required"],
-    // },
-
+    
     budget:
     {
         type: String,
@@ -72,7 +60,7 @@ const LegacySchema = new mongoose.Schema({
     cooling:
     {  
         type: String,
-        required : [true, "CPU is required"]
+        required : [true, "Cooling is required"]
     },
 
     theme:
@@ -95,27 +83,7 @@ const LegacySchema = new mongoose.Schema({
         ref: "User"
     }
 
-    // psu:
-    // {
-    //     type: String
-    // },
-
-    // motherboard:
-    // {
-    //     type: String
-    // },
-
-    // case:
-    // {
-    //     type: String
-    // },
-
-    // accessories:
-    // {
-    //     type: String
-    // },
-
 }, { timestamps: true });
 
 
-module.exports = mongoose.model('Legacy', LegacySchema);
+module.exports = mongoose.model('Custom', CustomSchema);

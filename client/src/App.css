@@ -37,7 +37,7 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  gap: 30px;
   margin:auto;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(128, 128, 128, 0.4), rgba(0, 0, 0, 0.8));
 }
@@ -80,12 +80,13 @@ a:hover{
 }
 
 #logo{
-  width: 150px;
+  width: 125px;
+  margin-left: 50px;
   height: auto;
 }
 
 #cart{
-  width: 70px;
+  width: 60px;
   height: auto;
 }
 
@@ -109,11 +110,34 @@ label{
 
 .home-login-registration{
   display: flex;
-  flex: 1;
+  flex: .5;
   justify-content: flex-end;
   align-items: center;
   margin-right: 50px;
-  gap: 25px;
+  gap: 5px;
+}
+
+#logout-btn{
+  background-color: goldenrod;
+  cursor: pointer;
+  width: fit-content;
+  border: 1px solid white;
+  box-shadow: 1px 1px 5px 1px whitesmoke;
+  border-radius: 2px;
+  -webkit-text-stroke: 0.25px black;
+}
+
+#logout-btn:hover{
+  background-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+  border: 1px solid red;
+  box-shadow: 1px 1px 5px 1px red;
+  -webkit-text-stroke: 1px gold;
+  text-emphasis: gold;
+  transition: 500ms;
+  opacity: .6;
 }
 
 .home-welcome{

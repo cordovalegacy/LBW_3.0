@@ -13,10 +13,6 @@ const HomePage = () => {
     return (
         <div>
             <main className="home-main">
-                <div className="home-login-registration">
-                    <Link to='/builds/login'>Login</Link> 
-                    <Link to='/builds/registration'>Register</Link> 
-                </div>
                 <h2 className="home-welcome">Welcome to Legacy Builds</h2>
                 <h2 className="home-welcome-disclaimer">Examples of previously built computers within their respected ranks</h2>
                 <div className="home-content-container">
@@ -32,7 +28,7 @@ const HomePage = () => {
                             <li>Up to Rtx 3060</li>
                             <li>Performance Focus</li>
                             <li>Often Used for: Gaming/School</li>
-                            <button id="home-content-button" onClick={() => navigate('/builds/custom')}>Starter Configuration</button>
+                            <button id="home-content-button" onClick={() => navigate('/computers/customs')}>Starter Configuration</button>
                         </ul>
                     </div>
                 </div>
@@ -49,7 +45,7 @@ const HomePage = () => {
                             <li>Up to Rtx 3070ti</li>
                             <li>Performance/Aesthetic Balance</li>
                             <li>Often Used for: Gaming/Streaming/Work</li>
-                            <button id="home-content-button" onClick={() => navigate('/builds/custom')}>Mid-Tier Configuration</button>
+                            <button id="home-content-button" onClick={() => navigate('/computers/customs')}>Mid-Tier Configuration</button>
                         </ul>
                     </div>
                 </div>
@@ -66,7 +62,7 @@ const HomePage = () => {
                             <li>Up to Rtx 3080ti</li>
                             <li>More Performance, More Aesthetic</li>
                             <li>Often Used for: Gaming/Streaming/Video Editing</li>
-                            <button id="home-content-button" onClick={() => navigate('/builds/custom')}>High-End Configuration</button>
+                            <button id="home-content-button" onClick={() => navigate('/computers/customs')}>High-End Configuration</button>
                         </ul>
                     </div>
                 </div>
@@ -84,7 +80,7 @@ const HomePage = () => {
                             <li>Extreme Performance</li>
                             <li>Extreme Aesthetic</li>
                             <li>Often Used for: Extreme Gaming/Content Creation</li>
-                            <button id="home-content-button" onClick={() => navigate('/builds/custom')}>Super-Tier Configuration</button>
+                            <button id="home-content-button" onClick={() => navigate('/computers/customs')}>Super-Tier Configuration</button>
                         </ul>
                     </div>
                 </div>
@@ -102,7 +98,7 @@ const HomePage = () => {
                             <li>Best parts on the market</li>
                             <li>Maximum Performance and Aesthetic</li>
                             <li>Often Used for: Overclocking/Testing/Showcase</li>
-                            <button id="home-content-button" onClick={() => navigate('/builds/custom')}>Enthusiast Configuration</button>
+                            <button id="home-content-button" onClick={() => navigate('/computers/customs')}>Enthusiast Configuration</button>
                         </ul>
                     </div>
                 </div>
